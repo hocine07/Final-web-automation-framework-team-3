@@ -1,6 +1,7 @@
 package utility;
 
-
+import com.mongodb.MongoClient;
+import com.mongodb.client.MongoDatabase;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -14,10 +15,10 @@ public class ConnectDB {
     public static ResultSet resultSet = null;
 
     public static Connection connectToSqlDatabase() {
-        String driverClass = Readfromexcel.getProperties().getProperty("MYSQLJDBC.driver");
-        String url = Readfromexcel.getProperties().getProperty("MYSQLJDBC.url");
-        String userName = Readfromexcel.getProperties().getProperty("MYSQLJDBC.userName");
-        String password = Readfromexcel.getProperties().getProperty("MYSQLJDBC.password");
+        String driverClass = Utility.getProperties().getProperty("MYSQLJDBC.driver");
+        String url = Utility.getProperties().getProperty("MYSQLJDBC.url");
+        String userName = Utility.getProperties().getProperty("MYSQLJDBC.userName");
+        String password = Utility.getProperties().getProperty("MYSQLJDBC.password");
         try {
             Class.forName(driverClass);
             connect = DriverManager.getConnection(url,userName,password);
@@ -28,7 +29,15 @@ public class ConnectDB {
         return connect;
     }
 
+    public static MongoDatabase mongoDatabase = null;
 
+    public MongoDatabase connectToMongoDB() {
+        MongoClient mongoClient = new MongoClient("" , 27017);
+        mongoDatabase = mongoClient.getDatabase("");
+        System.out.println("Database Connected");
+
+        return mongoDatabase;
+    }
 
     public static List<String> getTableColumnData(String query, String columnName) {
         List<String> list = new ArrayList<>();
@@ -44,9 +53,8 @@ public class ConnectDB {
         return list;
     }
 
-   // public static void main(String[] args) throws SQLException {
-      //  List<String> emails = getTableColumnData("select * from cred;","");
-     //   System.out.println(emails.get(0));
+    public static void main(String[] args) throws SQLException {
+        List<String> emails = getTableColumnData("select * from cred;","email");
+        System.out.println(emails.get(0));
     }
-//}
-
+}
