@@ -1,0 +1,25 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name=" gumtree tests">
+    <parameter name="useCloudEnv" value="false"/>
+
+    <parameter name="envName" value="browserstack"/>
+    <parameter name="os" value="windows"/>
+    <parameter name="osVersion" value="11"/>
+    <parameter name="browserVersion" value="100"/>
+
+    <parameter name="browserName" value="chrome"/>
+    <parameter name="url" value="https://www.gumtree.com/"/>
+    <test name="gumtree tests">
+        <classes>
+            <class name="gumtreetests.TestSearch"/>
+            <class name="gumtreetests.TestLogoIcon"/>
+            <class name="gumtreetests.TestLogin"/>
+            <class name="gumtreetests.TestNavigationBar"/>
+            <class name="gumtreetests.TestBrowser"/>
+
+
+        </classes>
+    </test>
+</suite>

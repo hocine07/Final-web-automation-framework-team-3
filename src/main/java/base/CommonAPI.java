@@ -14,13 +14,18 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
+import utility.Utility;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
 
 public class CommonAPI {
+    String username = Utility.decode(Utility.getProperties().getProperty("browserstack.username"));
+
+    String password = Utility.decode(Utility.getProperties().getProperty("browserstack.password"));
     public WebDriver driver;
+
 
     public void getLocalDriver(String browserName){
         if (browserName.equalsIgnoreCase("chrome")){
@@ -51,13 +56,12 @@ public class CommonAPI {
     public void setUp(@Optional("false") boolean useCloudEnv, @Optional("browserstack") String envName,
                       @Optional("windows") String os, @Optional("11") String osVersion,
                       @Optional("chrome") String browserName, @Optional("108") String browserVersion,
-                      @Optional("https://www.google.com") String url) throws InterruptedException, MalformedURLException {
-        //  if (useCloudEnv){
-        ///  getCloudDriver(envName, os,osVersion,browserName,browserVersion, username, password);
-        // }else {
-        //   getLocalDriver(browserName);
-        //  }
-
+                      @Optional("https://www.gumtree.com/") String url) throws InterruptedException, MalformedURLException {
+        if (useCloudEnv){
+            getCloudDriver(envName, os,osVersion,browserName,browserVersion, username, password);
+        }else {
+            getLocalDriver(browserName);
+        }
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
         driver.get(url);
@@ -98,5 +102,6 @@ public class CommonAPI {
         actions.moveToElement(element).build().perform();
     }
 }
+
 
 
