@@ -1,8 +1,7 @@
-package tests;
+package com.freecrm.tests;
 
 import base.CommonAPI;
 import com.freecrm.pages.HomePage;
-import com.freecrm.pages.MyAccountPage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
@@ -20,11 +19,11 @@ public class TestLogin extends CommonAPI {
         HomePage homePage = new HomePage(getDriver());
         String expectedTitle= "Cogmento CRM";
         homePage.typeEmailAddress(email);
-        LOG.info("");
+
         homePage.typePassword(password);
-        LOG.info("");
+
         homePage.clickOnLogin();
-        LOG.info("");
+        LOG.info("login in success");
         Thread.sleep(300);
 
 
@@ -42,11 +41,13 @@ public class TestLogin extends CommonAPI {
     public void InvalidLogin() {
         HomePage homePage = new HomePage(getDriver());
         homePage.typeEmailAddress(email2);
-        LOG.info("");
+
         homePage.typePassword(password2);
-        LOG.info("");
+
         homePage.clickOnLogin();
-        LOG.info("");
+        LOG.info("login in failed");
+
+
         Assert.assertEquals(homePage.getErrorLogin(), "Something went wrong...");
 
     }

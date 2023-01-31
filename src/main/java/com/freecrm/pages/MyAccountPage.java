@@ -8,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class MyAccountPage extends CommonAPI {
     Logger LOG = LogManager.getLogger(HomePage.class.getName());
 
@@ -35,13 +37,26 @@ public class MyAccountPage extends CommonAPI {
 
 
     @FindBy(xpath = "//div[@class='ui basic button floating item dropdown']")
-    public WebElement dropDownMenu;
+    public WebElement settingBtn;
 
-    public void menu(String option) {
-        selectOptionFromDropdown(dropDownMenu, option);
-
+    public void clickOnSettingBtn() {
+        clickOn(settingBtn);
     }
-}
+
+
+
+    @FindBy(xpath = "//a[@role='option']")
+    List<WebElement> settingMenuList;
+
+    public void clickOnSettingMenuList(String list){
+        for(WebElement element: settingMenuList){
+            if(element.getText().equals(list));
+            clickOn(element);
+            break;
+            }
+        }
+    }
+
 
 
 
