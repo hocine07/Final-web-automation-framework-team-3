@@ -7,6 +7,10 @@ import java.util.Properties;
 public class Utility {
 
     public static String path = System.getProperty("user.dir");
+
+
+
+
     public static Properties getProperties(){
         Properties prop = new Properties();
         try {

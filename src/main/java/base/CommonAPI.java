@@ -14,10 +14,18 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
+import utility.Utility;
+
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
+
 
 import reporting.ExtentManager;
 import reporting.ExtentTestManager;
@@ -37,6 +45,14 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class CommonAPI {
+
+    String username = Utility.decode(Utility.getProperties().getProperty("browserstack.username"));
+
+    String password = Utility.decode(Utility.getProperties().getProperty("browserstack.password"));
+    public WebDriver driver;
+
+
+
     Logger LOG = LogManager.getLogger(CommonAPI.class.getName());
 
     String takeScreenshot = Utility.getProperties().getProperty("take.screenshot", "false");
@@ -105,6 +121,7 @@ public class CommonAPI {
         calendar.setTimeInMillis(millis);
         return calendar.getTime();
     }
+
     public void getLocalDriver(String browserName){
         ChromeOptions options = new ChromeOptions();
         if (browserName.equalsIgnoreCase("chrome")){
@@ -135,15 +152,23 @@ public class CommonAPI {
     public void setUp(@Optional("false") boolean useCloudEnv, @Optional("browserstack") String envName,
                       @Optional("windows") String os, @Optional("11") String osVersion,
                       @Optional("chrome") String browserName, @Optional("108") String browserVersion,
+
+                      @Optional("https://www.gumtree.com/") String url) throws InterruptedException, MalformedURLException {
+
                       @Optional("https://ui.freecrm.com/") String url) throws InterruptedException, MalformedURLException {
+
         if (useCloudEnv){
             getCloudDriver(envName, os,osVersion,browserName,browserVersion, username, password);
         }else {
             getLocalDriver(browserName);
         }
+
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
         if (maximizeBrowser.equalsIgnoreCase("true")){
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Integer.parseInt(implicitWait)));
         }
+
         driver.manage().window().maximize();
         driver.get(url);
     }
@@ -212,6 +237,9 @@ public class CommonAPI {
         Date date = new Date();
         df.format(date);
 
+
+
+
         File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         try {
             FileUtils.copyFile(file, new File(Utility.path + File.separator +"screenshots"+ File.separator + screenshotName+" "+df.format(date)+".jpeg"));
@@ -221,3 +249,4 @@ public class CommonAPI {
         }
     }
 }
+
