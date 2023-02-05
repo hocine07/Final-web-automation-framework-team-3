@@ -22,31 +22,69 @@ public class MyAccountPage extends CommonAPI {
     public WebElement validLogin;
 
 
+    @FindBy(xpath = "//div[@class='ui basic button floating item dropdown']")
+    public WebElement settingBtn;
+
+
+
+    @FindBy(xpath = "//div[@class='ui inverted transparent left icon input']/input")
+    public WebElement searchBar;
+
+
+
+    @FindBy(xpath = "//a[@role='option']")
+    List<WebElement> settingMenuList;
+
+
+
+    @FindBy(xpath = "//div[@id='main-nav']//a")
+    public List<WebElement>  listMenu;
+
+
+    @FindBy(xpath = "//a/span[text()='Calendar']")
+    public WebElement calendarBtn;
+
+
     public String getValid() {
         waitForElementToBeVisible(getDriver(), 30, validLogin);
         return getTextFromElement(validLogin);
     }
 
 
-    @FindBy(xpath = "//div[@class='ui inverted transparent left icon input']/input")
-    public WebElement searchBar;
+
 
     public void search(String item) {
         typeAndEnter(searchBar, item);
     }
 
 
-    @FindBy(xpath = "//div[@class='ui basic button floating item dropdown']")
-    public WebElement settingBtn;
+
 
     public void clickOnSettingBtn() {
         clickOn(settingBtn);
     }
 
+    public void clickOnMenu(String option){
+        for(WebElement element: listMenu){
+            if(element.getText().equals(option)){
+
+                clickOn(element);
+                break;
+            };
+        }
+
+    }
+
+    public void clickOnCalender() throws InterruptedException {
+        Thread.sleep(3000);
+        clickOnMenu("Calendar");
 
 
-    @FindBy(xpath = "//a[@role='option']")
-    List<WebElement> settingMenuList;
+    }
+
+
+
+
 
     public void clickOnSettingMenuList(String list){
         for(WebElement element: settingMenuList){

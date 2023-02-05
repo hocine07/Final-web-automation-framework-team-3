@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="freecrm">
+
+    <parameter name="browserName" value="chrome"/>
+    <parameter name="url" value="https://ui.freecrm.com/"/>
+    <test name="hocinFreecrm">
+        <classes>
+            <class name="com.freecrm.tests.TestLogin"></class>
+            <class name="com.freecrm.tests.TestLogOut"></class>
+            <class name="com.freecrm.tests.TestAddUser"></class>
+            <class name="com.freecrm.tests.TestForms"></class>
+            <class name="com.freecrm.tests.TestDocuments"></class>
+
+        </classes>
+
+    </test>
+</suite>

@@ -17,7 +17,7 @@ public class TestLogOut extends CommonAPI {
     public void logOut(){
         HomePage homePage= new HomePage(getDriver());
         LOG.info("landing on freecrem success");
-        homePage.typeEmailAddress("Lhoucoutinho@gmail.com");
+        homePage.typeEmailAddress("houfantas@gmail.com");
         homePage.typePassword("Houhouhou8");
         homePage.clickOnLogin();
         LOG.info("login in success");

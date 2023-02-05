@@ -31,6 +31,18 @@ public class HomePage extends CommonAPI {
     public WebElement invalidLogin;
 
 
+    @FindBy(xpath = "//i[@class='wpforms icon']")
+    public WebElement formsButton;
+
+
+    @FindBy(xpath ="//i[@class='file icon']")
+    public WebElement documentsBtn;
+
+
+
+
+
+
 
 
 
@@ -58,6 +70,19 @@ public class HomePage extends CommonAPI {
 
 
     }
+
+
+    public void clickOnForms(){
+        clickOn(formsButton);
+    }
+
+
+
+    public void clickOnDocuments(){
+        clickOn(documentsBtn);
+    }
+
+
 
 
 

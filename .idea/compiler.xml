@@ -6,7 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="web-automation-framework-team03" />
+        <module name="Final-web-automation-framework-team 3" />
       </profile>
     </annotationProcessing>
   </component>

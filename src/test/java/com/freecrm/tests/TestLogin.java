@@ -7,11 +7,13 @@ import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import static java.sql.DriverManager.getDriver;
+
 public class TestLogin extends CommonAPI {
 
     Logger LOG = LogManager.getLogger(TestLogin.class.getName());
 
-    String email= "Lhoucoutinho@gmail.com";
+    String email= "houfantas@gmail.com";
     String password= "Houhouhou8";
 
     @Test

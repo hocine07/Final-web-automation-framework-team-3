@@ -1,9 +1,0 @@
-gumtreepages\HomePage.class
-gumtreepages\RegistrationPage.class
-utility\Utility.class
-gumtreepages\SellPage.class
-utility\ConnectDB.class
-utility\Readfromexcel.class
-gumtreepages\LoginPage.class
-base\CommonAPI.class
-gumtreepages\SearchPage.class

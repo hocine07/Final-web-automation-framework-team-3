@@ -29,7 +29,6 @@ import org.testng.annotations.*;
 
 import reporting.ExtentManager;
 import reporting.ExtentTestManager;
-import utility.Utility;
 
 import java.io.File;
 import java.io.IOException;
@@ -46,10 +45,8 @@ import java.util.Date;
 
 public class CommonAPI {
 
-    String username = Utility.decode(Utility.getProperties().getProperty("browserstack.username"));
 
-    String password = Utility.decode(Utility.getProperties().getProperty("browserstack.password"));
-    public WebDriver driver;
+
 
 
 
@@ -153,9 +150,9 @@ public class CommonAPI {
                       @Optional("windows") String os, @Optional("11") String osVersion,
                       @Optional("chrome") String browserName, @Optional("108") String browserVersion,
 
-                      @Optional("https://www.gumtree.com/") String url) throws InterruptedException, MalformedURLException {
-
                       @Optional("https://ui.freecrm.com/") String url) throws InterruptedException, MalformedURLException {
+
+
 
         if (useCloudEnv){
             getCloudDriver(envName, os,osVersion,browserName,browserVersion, username, password);

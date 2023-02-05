@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AccountSetting extends CommonAPI {
@@ -19,6 +20,12 @@ public class AccountSetting extends CommonAPI {
 
     @FindBy(xpath = "//div[@class='right menu']/a")
     List<WebElement> accountSettingMenu;
+
+    @FindBy(xpath = "//div[@class='ui button']")
+    public WebElement addButton;
+
+    @FindBy(xpath = "//tbody//tr//td[2]//a")
+    public List<WebElement> allUsers;
 
 
     public void clickOnSettingOption(String button) {
@@ -32,10 +39,24 @@ public class AccountSetting extends CommonAPI {
 
 
 
-    @FindBy(xpath = "//div[@class='ui button']")
-    public WebElement addButton;
+
 
     public void clickOnAddBtn(){
         clickOn(addButton);
     }
+
+    public List<String> getAllUserName(){
+        List<String> usersName= new ArrayList<>();
+        for(WebElement element : allUsers){
+            usersName.add(element.getText());
+
+
+        }
+        return usersName;
+    }
+
+
+
 }
+
+

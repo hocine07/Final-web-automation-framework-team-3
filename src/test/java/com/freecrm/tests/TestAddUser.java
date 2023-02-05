@@ -2,11 +2,14 @@ package com.freecrm.tests;
 
 import base.CommonAPI;
 import com.freecrm.pages.AccountSetting;
+import com.freecrm.pages.AddUserPage;
 import com.freecrm.pages.HomePage;
 import com.freecrm.pages.MyAccountPage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.testng.Assert;
 import org.testng.annotations.Test;
+import utility.GenerateData;
 
 public class TestAddUser extends CommonAPI {
     Logger LOG = LogManager.getLogger(TestLogin.class.getName());
@@ -15,7 +18,7 @@ public class TestAddUser extends CommonAPI {
     public void addUser() throws InterruptedException {
         HomePage homePage= new HomePage(getDriver());
         LOG.info("Land on freecrm success");
-        homePage.typeEmailAddress("Lhoucoutinho@gmail.com");
+        homePage.typeEmailAddress("houfantas@gmail.com");
         homePage.typePassword("Houhouhou8");
         homePage.clickOnLogin();
         LOG.info("login success");
@@ -31,6 +34,24 @@ public class TestAddUser extends CommonAPI {
         Thread.sleep(300);
         accountSetting.clickOnAddBtn();
         LOG.info("clicking on add button success");
+        String password = GenerateData.password();
+        String firstName = GenerateData.firstName();
+        String lastName = GenerateData.lastName();
+        AddUserPage addUserPage= new AddUserPage(getDriver());
+        addUserPage.typeFirstName(firstName);
+        addUserPage.typeLastName(lastName);
+        addUserPage.typeEmail(GenerateData.email());
+        addUserPage.typePassword(password+"T");
+        addUserPage.typePassword2(password+"T");
+        addUserPage.clickOnSaveButton();
+        LOG.info("saving the new user success");
+
+        Assert.assertTrue(accountSetting.getAllUserName().contains(firstName+ " "+lastName));
+
+
+
+
+
 
 
 
