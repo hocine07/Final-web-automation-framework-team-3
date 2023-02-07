@@ -8,7 +8,7 @@
         <classes>
             <class name="com.freecrm.tests.TestLogin"></class>
             <class name="com.freecrm.tests.TestLogOut"></class>
-            <class name="com.freecrm.tests.TestAddUser"></class>
+            <class name="com.freecrm.tests.TestUser"></class>
             <class name="com.freecrm.tests.TestForms"></class>
             <class name="com.freecrm.tests.TestDocuments"></class>
 
