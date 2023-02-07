@@ -48,10 +48,21 @@ public class TestAddUser extends CommonAPI {
 
         Assert.assertTrue(accountSetting.getAllUserName().contains(firstName+ " "+lastName));
 
+    }
 
 
 
-
+    @Test
+    public void deleteUser(){
+        HomePage homePage= new HomePage(getDriver());
+        LOG.info("Land on freecrm success");
+        homePage.typeEmailAddress("houfantas@gmail.com");
+        homePage.typePassword("Houhouhou8");
+        homePage.clickOnLogin();
+        LOG.info("login success");
+        AccountSetting accountSetting=new AccountSetting(getDriver());
+        accountSetting.clickOnSettingOption("User Manager");
+        LOG.info("clicking on user manager button success");
 
 
 
