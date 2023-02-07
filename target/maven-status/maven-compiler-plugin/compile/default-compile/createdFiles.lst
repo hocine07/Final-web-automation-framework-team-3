@@ -1,0 +1,16 @@
+com\freecrm\pages\HomePage.class
+utility\GenerateData.class
+reporting\ApplicationLog.class
+utility\ReadFromExcel.class
+com\freecrm\pages\AccountSetting.class
+utility\ConnectDB.class
+com\freecrm\pages\DocumentsPage.class
+base\CommonAPI.class
+com\freecrm\pages\AddUserPage.class
+reporting\ExtentManager.class
+utility\Utility.class
+com\freecrm\pages\FormsPage.class
+reporting\ExtentTestManager.class
+reporting\TestLogger.class
+com\freecrm\pages\CalenderPage.class
+com\freecrm\pages\MyAccountPage.class
