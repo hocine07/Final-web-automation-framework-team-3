@@ -7,7 +7,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Final-web-automation-framework-team 3" />
+<<<<<<< HEAD
         <module name="Final-web-automation-framework-team-3" />
+=======
+        <module name="Nov2022AutomationFramework" />
+>>>>>>> b0eae6a15267fcee680ffac76f2f6b5c30e79ff3
       </profile>
     </annotationProcessing>
   </component>

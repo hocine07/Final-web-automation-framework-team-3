@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name=" vtiger tests">
+    <parameter name="useCloudEnv" value="false"></parameter>
+
+    <parameter name="envName" value="browserstack"></parameter>
+    <parameter name="os" value="windows"></parameter>
+    <parameter name="osVersion" value="11"></parameter>
+    <parameter name="browserVersion" value="108"></parameter>
+
+    <parameter name="browserName" value="edge"></parameter>
+    <parameter name="url" value="https://www.vtiger.com/"></parameter>
+    <test name="vtiger tests">
+        <classes>
+
+            <class name="com.vtiger.tests.ChatBox"></class>
+            <class name="com.vtiger.tests.VideoTutorials"></class>
+            <class name="com.vtiger.tests.ProductPricing"></class>
+            <class name="com.vtiger.tests.PartnersOption"></class>
+            <class name="com.vtiger.tests.NavigationBar"></class>
+            <class name="com.vtiger.tests.ContactUs"></class>
+            <class name="com.vtiger.tests.BlogFeature"></class>
+            <class name="com.vtiger.tests.ArticlesSignInButton"></class>
+            <class name="com.vtiger.tests.CollaborationCategory"></class>
+            <class name="com.vtiger.tests.DaysFreeTrial"></class>
+            <class name="com.vtiger.tests.ExploreAllFeature"></class>
+            <class name="com.vtiger.tests.LoginTest"></class>
+            <class name="com.vtiger.tests.LogoIcon"></class>
+            <class name="com.vtiger.tests.MarketingArticlesList"></class>
+            <class name="com.vtiger.tests.OneViewProductList"></class>
+            <class name="com.vtiger.tests.ScrollBoxTest"></class>
+            <class name="com.vtiger.tests.SignInWithGoogleButton"></class>
+            <class name="com.vtiger.tests.SolutionFloatingMenu"></class>
+            <class name="com.vtiger.tests.TestSearch"></class>
+            <class name="com.vtiger.tests.VtigerOneOption"></class>
+
+
+
+        </classes>
+    </test>
+</suite>
