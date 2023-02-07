@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class DocumentsPage extends CommonAPI {
-    Logger LOG = LogManager.getLogger(HomePage.class.getName());
+    Logger LOG = LogManager.getLogger(DocumentsPage.class.getName());
 
     public DocumentsPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -38,6 +38,11 @@ public class DocumentsPage extends CommonAPI {
 
     @FindBy(xpath = "//button[@class='ui red button']")
     public WebElement deleteBtn;
+
+
+    @FindBy(xpath = "//a[text()='lhou']")
+    public WebElement lhouDocument;
+
 
 
 

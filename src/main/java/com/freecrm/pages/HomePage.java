@@ -15,6 +15,8 @@ public class HomePage extends CommonAPI {
         PageFactory.initElements(driver, this);
     }
 
+    @FindBy(xpath = "//div[@class='header item']")
+    public WebElement pageLogo;
     @FindBy(xpath = "//input[@name='email']")
     public WebElement emailField;
 
@@ -86,7 +88,7 @@ public class HomePage extends CommonAPI {
 
 
 
-    }
+}
 
 
 

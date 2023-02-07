@@ -11,6 +11,13 @@
             <class name="com.freecrm.tests.TestUser"></class>
             <class name="com.freecrm.tests.TestForms"></class>
             <class name="com.freecrm.tests.TestDocuments"></class>
+            <class name="com.freecrm.tests.TestPayment"></class>
+            <class name="com.freecrm.tests.TestCalendar"></class>
+            <class name="com.freecrm.tests.TestContacts"></class>
+            <class name="com.freecrm.tests.TestEvent"></class>
+            <class name="com.freecrm.tests.TestPhoneNumber"></class>
+            <class name="com.freecrm.tests.TestSearch"></class>
+            <class name="com.freecrm.tests.TestVerification"></class>
 
         </classes>
 

@@ -3,6 +3,7 @@ package utility;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -66,7 +67,11 @@ public class ReadFromExcel {
     }
 
     public static void main(String[] args) throws IOException {
-        ReadFromExcel read = new ReadFromExcel("", "test data");
-        read.getCellValueForGivenHeaderAndKey("key","home page title");
+        String path = System.getProperty("user.dir")+ File.separator +"data" + File.separator + "titles.xlsx";
+        ReadFromExcel read = new ReadFromExcel(path, "test data");
+        //read.getCellValueForGivenHeaderAndKey("key","home page title");
+        System.out.println(read.getDataFromCell(1,0));
+        ReadFromExcel read2 = new ReadFromExcel(path, "pay info");
     }
+
 }

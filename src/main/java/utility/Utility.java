@@ -28,10 +28,18 @@ public class Utility {
     }
 
     public static void main(String[] args) {
+
+//        String toEncode = "hocine_Ne3PbB";
+//        String encoded = Base64.getEncoder().encodeToString(toEncode.getBytes());
+//        System.out.println(encoded);
+//
+//        System.out.println(decode("frN1jxzxDDgSrrMixbbP"));
+
        String toEncode = "tounsiam_9bCws7";
        String encoded = Base64.getEncoder().encodeToString(toEncode.getBytes());
        System.out.println(encoded);
        System.out.println(decode("dG91bnNpYW1fOWJDd3M3"));
+
 
         String sep = File.separator;
         String path = System.getProperty("user.dir");

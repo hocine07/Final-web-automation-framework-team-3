@@ -5,10 +5,11 @@ import com.freecrm.pages.DocumentsPage;
 import com.freecrm.pages.HomePage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class TestDocuments extends CommonAPI {
-    Logger LOG = LogManager.getLogger(TestLogin.class.getName());
+    Logger LOG = LogManager.getLogger(TestDocuments.class.getName());
 
 
     @Test
@@ -17,7 +18,7 @@ public class TestDocuments extends CommonAPI {
         homePage.typeEmailAddress("houfantas@gmail.com");
         homePage.typePassword("Houhouhou8");
         homePage.clickOnLogin();
-
+        LOG.info("landing on free crm account success");
         homePage.clickOnDocuments();
         Thread.sleep(3000);
 
@@ -28,6 +29,9 @@ public class TestDocuments extends CommonAPI {
         Thread.sleep(300);
         addDocumentsPage.clickOnSave();
         Thread.sleep(300);
+        LOG.info("creating new document success");
+        Assert.assertTrue(addDocumentsPage.lhouDocument.isDisplayed(),"");
+
 
     }
 
@@ -38,7 +42,7 @@ public class TestDocuments extends CommonAPI {
         homePage.typeEmailAddress("houfantas@gmail.com");
         homePage.typePassword("Houhouhou8");
         homePage.clickOnLogin();
-
+        LOG.info("landing on free crm account success");
         homePage.clickOnDocuments();
         Thread.sleep(3000);
 
@@ -49,6 +53,8 @@ public class TestDocuments extends CommonAPI {
         Thread.sleep(300);
         documentsPage.clickOnRedDeleteFolderBtn();
         Thread.sleep(300);
+        LOG.info("deleting document success");
+        Assert.assertFalse(documentsPage.lhouDocument.isDisplayed(),"no document was found");
 
 
     }

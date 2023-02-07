@@ -189,6 +189,10 @@ public class CommonAPI {
     public void type(WebElement element, String text){
         element.sendKeys(text);
     }
+    public void typeAndClear(WebElement element, String text){
+        element.clear();
+        element.sendKeys(text);
+    }
     public void typeAndEnter(WebElement element, String text){
         element.sendKeys(text, Keys.ENTER);
     }
