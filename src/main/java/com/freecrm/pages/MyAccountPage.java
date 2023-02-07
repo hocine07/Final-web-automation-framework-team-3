@@ -11,15 +11,14 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 
 public class MyAccountPage extends CommonAPI {
-    Logger LOG = LogManager.getLogger(HomePage.class.getName());
+    Logger LOG = LogManager.getLogger(MyAccountPage.class.getName());
 
     public MyAccountPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
 
-    @FindBy(xpath = "//*[@id=\"top-header-menu\"]/b")
-    public WebElement validLogin;
+
 
 
     @FindBy(xpath = "//div[@class='ui basic button floating item dropdown']")
@@ -45,17 +44,20 @@ public class MyAccountPage extends CommonAPI {
     public WebElement calendarBtn;
 
 
-    public String getValid() {
-        waitForElementToBeVisible(getDriver(), 30, validLogin);
-        return getTextFromElement(validLogin);
-    }
+    @FindBy(xpath = "//div[@class='ui left fixed vertical  icon menu sidebar-dark left-to-right']")
+    public List<WebElement> homeMenu;
+
+
+
+    @FindBy(xpath ="//span[text()='Contacts']")
+    public WebElement contactBtn;
 
 
 
 
-    public void search(String item) {
-        typeAndEnter(searchBar, item);
-    }
+
+
+
 
 
 
@@ -79,7 +81,6 @@ public class MyAccountPage extends CommonAPI {
         Thread.sleep(3000);
         clickOnMenu("Calendar");
 
-
     }
 
 
@@ -91,9 +92,38 @@ public class MyAccountPage extends CommonAPI {
             if(element.getText().equals(list));
             clickOn(element);
             break;
-            }
         }
     }
+
+
+
+    public void typeOnSearchBar(String name){
+        typeAndEnter(searchBar,name);
+    }
+
+
+
+
+//        public void clickOnContactsFromHomeMenu(String button){
+//        for(WebElement element: homeMenu){
+//                    if(element.getText().equals(button));
+//                    clickOn(element);
+//                    break;
+//                }
+
+
+    public void clickOnContacts(){
+        clickOn(contactBtn);
+    }
+}
+
+
+
+
+
+
+
+
 
 
 

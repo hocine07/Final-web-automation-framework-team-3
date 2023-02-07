@@ -9,8 +9,8 @@ import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TestCalandar extends CommonAPI {
-    Logger LOG = LogManager.getLogger(TestLogin.class.getName());
+public class TestCalendar extends CommonAPI {
+    Logger LOG = LogManager.getLogger(TestCalendar.class.getName());
 
     String email= "houfantas@gmail.com";
     String password= "Houhouhou8";
@@ -24,11 +24,13 @@ public class TestCalandar extends CommonAPI {
         homePage.typeEmailAddress(email);
         homePage.typePassword(password);
         homePage.clickOnLogin();
+        LOG.info("landing on free crm account success");
         myAccountPage.clickOnCalender();
         calenderPage.clickOnManage(getDriver());
         calenderPage.clickOnAddPlus();
-        calenderPage.typeOnField("Birt");
+        calenderPage.typeOnField("Birth");
         calenderPage.clickOnAddButton(getDriver());
+        LOG.info("creating a new event success");
         Assert.assertTrue((calenderPage.event).isDisplayed(),"test passed");
     }
 
@@ -42,11 +44,13 @@ public class TestCalandar extends CommonAPI {
         homePage.typeEmailAddress(email);
         homePage.typePassword(password);
         homePage.clickOnLogin();
+        LOG.info("landing on free crm account success");
         myAccountPage.clickOnCalender();
         calenderPage.clickOnManage(getDriver());
         calenderPage.deleteBirthEvent();
 
         calenderPage.deleteBtn();
+        LOG.info("deleting calendar event success");
         Assert.assertFalse((calenderPage.event).isDisplayed(),"test passed");
     }
     @Test
@@ -58,6 +62,7 @@ public class TestCalandar extends CommonAPI {
         homePage.typeEmailAddress(email);
         homePage.typePassword(password);
         homePage.clickOnLogin();
+        LOG.info("landing on free crm account success");
         myAccountPage.clickOnCalender();
         calenderPage.clickOnManage(getDriver());
         calenderPage.editCalendar("Birth","meeting");

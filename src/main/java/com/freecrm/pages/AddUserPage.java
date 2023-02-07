@@ -10,14 +10,14 @@ import org.openqa.selenium.support.PageFactory;
 
 public class AddUserPage extends CommonAPI {
 
-    Logger LOG = LogManager.getLogger(HomePage.class.getName());
+    Logger LOG = LogManager.getLogger(AddUserPage.class.getName());
 
 
     public AddUserPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
-     // WebElement region
+    // WebElement region
     @FindBy(name = "first_name")
     public WebElement firstNameField;
 
@@ -36,14 +36,18 @@ public class AddUserPage extends CommonAPI {
     @FindBy(xpath = "//button[@class='ui linkedin small button']")
     public WebElement saveButton;
 
+    @FindBy(xpath = "//td[2]/a")
+    public WebElement lhouHoussine;
+
     // method region
     public void typeFirstName(String firstName){
-        type(firstNameField, firstName );
+        firstNameField.clear();
+        typeAndClear(firstNameField, firstName );
     }
 
 
     public void typeLastName(String lastName){
-        type(lastNameField,lastName);
+        typeAndClear(lastNameField,lastName);
     }
 
     public void typeEmail(String emailAddress){
