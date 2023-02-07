@@ -150,7 +150,7 @@ public class CommonAPI {
                       @Optional("windows") String os, @Optional("11") String osVersion,
                       @Optional("chrome") String browserName, @Optional("108") String browserVersion,
 
-                      @Optional("https://ui.freecrm.com/") String url) throws InterruptedException, MalformedURLException {
+                      @Optional("https://www.vtiger.com/") String url) throws InterruptedException, MalformedURLException {
 
 
 
